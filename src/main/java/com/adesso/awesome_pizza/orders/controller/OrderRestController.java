@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adesso.awesome_pizza.orders.dto.OrderDTO;
@@ -66,7 +65,7 @@ public class OrderRestController {
 
 	@DeleteMapping("/cancel/{id}")
 	@Operation(description = "Cancels the order with the specified ID")
-	public void cancelOrder(@RequestParam Long id) {
+	public void cancelOrder(@PathVariable Long id) {
 		this.orderService.cancel(id);
 	}
 
