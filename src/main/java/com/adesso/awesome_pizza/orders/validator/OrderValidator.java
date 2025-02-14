@@ -23,7 +23,7 @@ public class OrderValidator {
 	
 	public void validateForCreation(String description) {
 		if (StringUtils.isBlank(description)) {
-			throw new OrderValidationException("Cannot create an order. A description must be not provided");
+			throw new OrderValidationException("Cannot create an order. A description must be provided");
 		}
 	}
 

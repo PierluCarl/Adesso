@@ -47,14 +47,14 @@ public class OrderValidatorTest {
 	@DisplayName("Should not create order when description is null")
 	void Should_ThrowOrderValidationException_When_CreatingAndDescriptionIsNull(String description) {
 		OrderValidationException exception = assertThrows(OrderValidationException.class, () -> orderValidator.validateForCreation(description));
-		assertThat("Cannot create an order. A description must be not provided", is(exception.getMessage()));
+		assertThat("Cannot create an order. A description must be provided", is(exception.getMessage()));
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = {"", " "})
 	@DisplayName("Should not create order when description is empty")
 	void Should_ThrowOrderValidationException_When_CreatingAndDescriptionIsEmpty(String description) {
-		String expectedError = "Cannot create an order. A description must be not provided";
+		String expectedError = "Cannot create an order. A description must be provided";
 
 		OrderValidationException exception = assertThrows(OrderValidationException.class, () -> orderValidator.validateForCreation(description));
 		assertThat(expectedError, is(exception.getMessage()));
